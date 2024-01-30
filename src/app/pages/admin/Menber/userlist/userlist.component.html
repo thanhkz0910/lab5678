@@ -1,0 +1,51 @@
+
+<div class="container fixed left-60">
+    <div class="text-center text-5xl font-extrabold text-cyan-500 uppercase mb-5 mr-46">User List</div>
+    <div class=" w-0 shadow-md sm:rounded-lg pb-5">
+      <table border="1"
+        class="ml-24 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border border-black border-collapse">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-6 py-3 border border-black text-center">Username</th>
+            <th scope="col" class="px-6 py-3 border border-black text-center">Email</th>
+            <th scope="col" class="px-6 py-3 border border-black text-center">Password</th>
+            <th scope="col" class="px-6 py-3 border border-black text-center">Role</th>
+            <th scope="col" class="px-6 py-3 border text-center border-black">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userList" class="odd:bg-white even:bg-gray-50 ">
+            <td scope="row" class="px-1 py-4  border border-black font-medium w-screen dark:text-black">
+              <p class="overflow-hidden whitespace-nowrap text-ellipsis w-80 text-center">
+                {{ user.fullname }}
+              </p>
+  
+            </td>
+            <td class="px-1 py-4  border border-black">
+              <p class="overflow-hidden whitespace-nowrap text-ellipsis w-80 dark:text-black text-center">
+                {{ user.email }}
+              </p>
+            </td>
+            <td class="px-20 py-4 border border-black dark:text-black text-center">{{user.password}}</td>
+            <td class="px-6 py-4 border border-black dark:text-black text-center">{{user.role}}</td>
+            <td class="px-12 py-4 border border-black">
+              <Button class="font-medium text-green-500 hover:underline" 
+              routerLink="/admin/edituser/{{user.id}}"
+              >
+                Edit
+              </Button>
+              <Button (click)="deleteUser(user.id)" class="font-medium text-red-500 hover:underline">
+                Delete
+              </Button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="py-[20px] ml-24">
+      <button routerLink="/admin/createuser" type="button"
+        class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Add
+        New User</button>
+    </div>
+  </div>
+  

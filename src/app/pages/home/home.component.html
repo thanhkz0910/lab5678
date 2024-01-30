@@ -1,0 +1,10 @@
+<app-header />
+<main class="container mx-auto">
+  <div class="grid grid-cols-4 gap-4 px-5 mb-5 mt-5">
+    <app-product-card
+      *ngFor="let productParent of productList"
+      [productChild]="productParent"
+    />
+  </div>
+</main>
+<app-footer />
